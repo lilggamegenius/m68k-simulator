@@ -2,10 +2,9 @@
 // Created by ggonz on 3/9/2017.
 //
 
-#ifndef M68KSIMULATOR_RAM_H
-#define M68KSIMULATOR_RAM_H
+class ram;
 
-class Address;
+#pragma once
 
 #include <cstdint>
 #include <malloc.h>
@@ -29,6 +28,3 @@ public:
     static RamMap* memory;
     Address operator[](M68kAddr address);
 };
-
-
-#endif //M68KSIMULATOR_RAM_H

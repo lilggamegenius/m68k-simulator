@@ -2,8 +2,9 @@
 // Created by ggonz on 3/14/2017.
 //
 
-#ifndef M68KSIMULATOR_ADDRESS_H
-#define M68KSIMULATOR_ADDRESS_H
+class Address;
+
+#pragma once
 
 
 #include "AddressSpace.h"
@@ -51,6 +52,3 @@ public:
     operator int32_t();
 
 };
-
-
-#endif //M68KSIMULATOR_ADDRESS_H

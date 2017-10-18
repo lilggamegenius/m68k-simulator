@@ -2,10 +2,8 @@
 // Created by ggonz on 3/9/2017.
 //
 
-#ifndef M68KSIMULATOR_M68KSIMULATOR_H
-#define M68KSIMULATOR_M68KSIMULATOR_H
+#pragma once
 
-class AddressSpace;
 class Rom;
 class Address;
 
@@ -26,12 +24,21 @@ class Address;
 
 #define CEXPORT extern "C" EXPORT
 
+#include <fstream>
 #include "AddressSpace.h"
 
 class M68KSimulator {
 public:
-    void init();
+
+
+	EXPORT void init();
+
+	EXPORT int run(std::string path);
+
+	EXPORT int run(char path[]);
+
+	EXPORT int run(FILE *file);
+
+	EXPORT int run(std::ifstream file);
 };
 
-
-#endif //M68KSIMULATOR_M68KSIMULATOR_H

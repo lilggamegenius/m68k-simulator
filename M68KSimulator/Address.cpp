@@ -40,47 +40,44 @@ Address &Address::operator=(int32_t value) {
 }
 
 Address &Address::operator=(Address address) {
-    if (address.size == Size::Byte) {
-        (*this) = (uint8_t) address;
-    } else if (address.size == Size::Word) {
-        (*this) = (uint16_t) address;
-    } else if (address.size == Size::Longword) {
-        (*this) = (uint32_t) address;
+	switch(address.size){
+	case Size::Byte:(*this) = (uint8_t) address;
+		break;
+	case Size::Word:(*this) = (uint16_t) address;
+		break;
+	case Size::Longword:(*this) = (uint32_t) address;
     }
     return *this;
 }
 
 Address &Address::operator=(DataRegister dRegister) {
-    if (size == Size::Byte) {
-        (*this) = dataRegisters[dRegister]->u8[0];
-    } else if (size == Size::Word) {
-        (*this) = dataRegisters[dRegister]->u16[0];
-    } else if (size == Size::Longword) {
-        (*this) = dataRegisters[dRegister]->u32;
+	switch(size){
+	case Size::Byte:(*this) = dataRegisters[dRegister].u8[0];
+		break;
+	case Size::Word:(*this) = dataRegisters[dRegister].u16[0];
+		break;
+	case Size::Longword:(*this) = dataRegisters[dRegister].u32;
     }
     return *this;
 }
 
 Address &Address::operator=(AddressRegister aRegister) {
-    if (size == Size::Byte) {
-        (*this) = addressRegisters[aRegister]->u8[0];
-    } else if (size == Size::Word) {
-        (*this) = addressRegisters[aRegister]->u16[0];
-    } else if (size == Size::Longword) {
-        (*this) = addressRegisters[aRegister]->u32;
+	switch(size){
+	case Size::Byte:(*this) = addressRegisters[aRegister]->u8[0];
+		break;
+	case Size::Word:(*this) = addressRegisters[aRegister]->u16[0];
+		break;
+	case Size::Longword:(*this) = addressRegisters[aRegister]->u32;
     }
     return *this;
 }
 
 Address::operator bool() {
-    if (size == Size::Byte) {
-        return (bool) Ram::memory->u8[addr];
-    } else if (size == Size::Word) {
-        return (bool) Ram::memory->u16[addr / 2];
-    } else if (size == Size::Longword) {
-        return (bool) Ram::memory->u32[addr / 4];
-    } else {
-        return false;
+	switch(size){
+	case Size::Byte:return (bool) Ram::memory->u8[addr];
+	case Size::Word:return (bool) Ram::memory->u16[addr / 2];
+	case Size::Longword:return (bool) Ram::memory->u32[addr / 4];
+	default:return false;
     }
 }
 

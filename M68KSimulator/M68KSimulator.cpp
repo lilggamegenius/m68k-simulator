@@ -87,3 +87,25 @@
  * TST          - Test Operand
  * UNLK         - Unlink
  */
+
+CEXPORT void M68KSimulator::init(){
+
+}
+
+CEXPORT int M68KSimulator::run(std::string path){
+	std::ifstream file(path);
+	return run(std::move(file));
+}
+
+CEXPORT int M68KSimulator::run(char *path){
+	std::ifstream file(path);
+	return run(std::move(file));
+}
+
+CEXPORT int M68KSimulator::run(FILE *file){
+	return -1;
+}
+
+CEXPORT int M68KSimulator::run(std::ifstream file){
+	return 0;
+}

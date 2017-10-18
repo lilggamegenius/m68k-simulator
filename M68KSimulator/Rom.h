@@ -2,9 +2,7 @@
 // Created by ggonz on 3/9/2017.
 //
 
-#ifndef M68KSIMULATOR_ROM_H
-#define M68KSIMULATOR_ROM_H
-
+#pragma once
 #include <cstdint>
 #include <string>
 
@@ -25,6 +23,3 @@ public:
     static RomMap* rom;
     void setRom(std::string filename);
 };
-
-
-#endif //M68KSIMULATOR_ROM_H

@@ -4,3 +4,6 @@
 
 #include "Rom.h"
 
+void Rom::setRom(std::string filename){
+
+}
