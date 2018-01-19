@@ -3,10 +3,11 @@
 //
 
 #include <memory>
-#include "Ram.h"
+#include "Ram.hpp"
+#include "AddressTypes/RamAddress.hpp"
 
 RamMap* Ram::memory = (RamMap*)malloc(ramSize);
 
-Address Ram::operator[](M68kAddr address) {
-    return Address(address);
+Address *Ram::operator[](M68kAddr address){
+	return new RamAddress(address);
 }

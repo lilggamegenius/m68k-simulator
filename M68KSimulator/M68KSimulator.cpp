@@ -2,7 +2,8 @@
 // Created by ggonz on 3/9/2017.
 //
 
-#include "M68KSimulator.h"
+#include <iostream>
+#include "M68KSimulator.hpp"
 
 /*
  * All supported instructions for the M68000
@@ -93,19 +94,23 @@ CEXPORT void M68KSimulator::init(){
 }
 
 CEXPORT int M68KSimulator::run(std::string path){
-	std::ifstream file(path);
+	std::ifstream file;
+	file.open(path, std::ios::in | std::ios::binary);
 	return run(std::move(file));
 }
 
 CEXPORT int M68KSimulator::run(char *path){
 	std::ifstream file(path);
+	file.open(path, std::ios::in | std::ios::binary);
 	return run(std::move(file));
 }
 
-CEXPORT int M68KSimulator::run(FILE *file){
+/*CEXPORT int M68KSimulator::run(FILE *file){
+	std::filebuf filebuf(file);
 	return -1;
-}
+}*/
 
 CEXPORT int M68KSimulator::run(std::ifstream file){
+	Rom::setRom(std::move(file));
 	return 0;
 }
