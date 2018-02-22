@@ -1,7 +1,7 @@
 #include <unicorn/unicorn.h>
 #include <iostream>
-#include "../Rom.hpp"
-#include "../Ram.hpp"
+#include <forward_list>
+#include "../M68KSimulator/AddressSpace.hpp"
 
 template<typename T, class = typename std::enable_if<std::is_integral<T>::value>::type>
 constexpr T align4k(T val){
@@ -12,19 +12,25 @@ constexpr T align4k(T val){
 
 const uint32_t ramAddress = 0xFFFF0000u, romAddress = 0,
 		ramSizeAligned = ramSize, romSizeAligned = romSize;
-const uint8_t instructions[] = {
-		0x13,
-		0xFC,
-		0x00,
-		0xFF,
-		0xFF,
-		0xFF,
-		0x00,
-		0x00
-};
+uint8_t* instructions;
+
 
 
 int main(int argc, char *argv[], char *envp[]){
+	if(argc > 1){
+		instructions = new uint8_t[argc-1];
+		for(int i = 1; i < argc; i++){
+			uint8_t val;
+			//sscanf(argv[i], "%02X", &val);
+			val = strtoul(argv[i], nullptr, 16);
+			instructions[i-1] = val;
+		}
+	} else{
+		std::forward_list<uint8_t> input;
+	}
+
+
+	AddressSpace* addressSpace = new AddressSpace;
 	uc_engine *uc;
 	uc_err err;
 
@@ -37,12 +43,12 @@ int main(int argc, char *argv[], char *envp[]){
 		return err;
 	}
 
-	err = uc_mem_map_ptr(uc, ramAddress, ramSizeAligned, UC_PROT_ALL, Ram::memory);
+	err = uc_mem_map_ptr(uc, ramAddress, ramSizeAligned, UC_PROT_ALL, &addressSpace->ram);
 	if(err){
 		std::cerr << "Failed to map ram: " << err << ": " << uc_strerror(err) << std::endl;
 		return err;
 	}
-	err = uc_mem_map_ptr(uc, romAddress, romSizeAligned, UC_PROT_ALL, Rom::rom);
+	err = uc_mem_map_ptr(uc, romAddress, romSizeAligned, UC_PROT_ALL, &addressSpace->rom);
 	if(err){
 		std::cerr << "Failed to map rom: " << err << ": " << uc_strerror(err) << std::endl;
 		return err;

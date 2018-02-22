@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="M68KSimulatorProject"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\M68KSimulator\;CMake Files\M68KTest\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/lil-g/workspace/m68k-simulator"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/lil-g/workspace/m68k-simulator"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/lil-g/workspace/m68k-simulator"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="M68KSimulator">
+				<Option output="/home/lil-g/workspace/m68k-simulator/build/lib/libM68KSimulator.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lil-g/workspace/m68k-simulator/M68KSimulator"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/M68KSimulator/Makefile&quot;  VERBOSE=1 M68KSimulator"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/M68KSimulator/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/M68KSimulator/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/M68KSimulator/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="M68KSimulator/fast">
+				<Option output="/home/lil-g/workspace/m68k-simulator/build/lib/libM68KSimulator.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lil-g/workspace/m68k-simulator/M68KSimulator"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/M68KSimulator/Makefile&quot;  VERBOSE=1 M68KSimulator/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/M68KSimulator/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/M68KSimulator/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/M68KSimulator/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="M68KTest">
+				<Option output="/home/lil-g/workspace/m68k-simulator/build/bin/M68KTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../build/bin/"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/M68KTest/Makefile&quot;  VERBOSE=1 M68KTest"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/M68KTest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/M68KTest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/M68KTest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="M68KTest/fast">
+				<Option output="/home/lil-g/workspace/m68k-simulator/build/bin/M68KTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../build/bin/"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/M68KTest/Makefile&quot;  VERBOSE=1 M68KTest/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/M68KTest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/M68KTest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lil-g/workspace/m68k-simulator/M68KTest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/AddressSpace.cpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/AddressSpace.hpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/AddressTypes/Address.cpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/AddressTypes/Address.hpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/AddressTypes/RamAddress.cpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/AddressTypes/RamAddress.hpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/AddressException.cpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/AddressException.h">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/BusException.cpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/BusException.h">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/CHKInstructionException.cpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/CHKInstructionException.h">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/ErrorException.cpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/ErrorException.h">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/IllegalInstructionException.cpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/IllegalInstructionException.h">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/Line1010EmulatorException.cpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/Line1010EmulatorException.h">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/Line1111EmulatorException.cpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/Line1111EmulatorException.h">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/PrivilegeViolationException.cpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/PrivilegeViolationException.h">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/TRAPVException.cpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/TRAPVException.h">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/TraceException.cpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/TraceException.h">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/ZeroDivideException.cpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Exceptions/ZeroDivideException.h">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/M68KSimulator.cpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/M68KSimulator.hpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Ram.cpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Ram.hpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Rom.cpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Rom.hpp">
+			<Option target="M68KSimulator"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/Test/M68KTest.cpp">
+			<Option target="M68KTest"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KSimulator/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\M68KSimulator\"/>
+		</Unit>
+		<Unit filename="/home/lil-g/workspace/m68k-simulator/M68KTest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\M68KTest\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

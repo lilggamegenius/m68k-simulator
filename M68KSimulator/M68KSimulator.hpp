@@ -6,38 +6,47 @@ class M68KSimulator;
 
 #pragma once
 
-#if defined(_MSC_VER)
-//  Microsoft
-#define EXPORT __declspec(dllexport)
-#define IMPORT __declspec(dllimport)
-#elif defined(__GNUC__)
-//  GCC or CLANG
-#define EXPORT __attribute__((visibility("default")))
-#define IMPORT
-#else
-//  do nothing and hope for the best?
-#define EXPORT
-#define IMPORT
-#pragma warning Unknown dynamic link import/export semantics.
-#endif
 
-#define CEXPORT extern "C" EXPORT
 
 #include <fstream>
+#include <unicorn/unicorn.h>
 #include "AddressSpace.hpp"
+
+struct M68KSim;
 
 class M68KSimulator {
 public:
+	AddressSpace* addressSpace;
 
+	EXPORT M68KSimulator();
 
-	EXPORT static void init();
+	EXPORT ~M68KSimulator();
 
-	EXPORT static int run(std::string path);
+	EXPORT void init();
 
-	EXPORT static int run(char path[]);
+	EXPORT int run(std::string path);
 
-	//EXPORT static int run(FILE *file);
+	EXPORT int run(char path[]);
 
-	EXPORT static int run(std::ifstream file);
+	//EXPORT int run(FILE *file);
+
+	EXPORT int run(std::ifstream file);
+
+	EXPORT bool unload();
+
+	EXPORT void fill();
+
+	EXPORT registers getDataRegister(DataRegister dataRegister);
+
+	EXPORT registers getAddressRegister(AddressRegister addressRegister);
+
+	EXPORT uint8_t getAddress8(uint32_t address);
+	EXPORT uint16_t getAddress16(uint32_t address);
+	EXPORT uint32_t getAddress32(uint32_t address);
+
+private:
+	uc_engine *uc;
+	uc_err err;
+
+	void setRom(std::ifstream);
 };
-

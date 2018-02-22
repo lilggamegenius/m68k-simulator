@@ -6,10 +6,6 @@
 
 #include <cstdint>
 
-#define M68kRamOffset 0xE00000
-#define M68kRamOffsetMirror 0xFF0000
-
-typedef uint32_t M68kAddr;
 typedef union{
 	uint8_t u8[4];
 	uint16_t u16[2];
@@ -20,13 +16,6 @@ typedef union{
 	int32_t s32;
 } registers;
 
-extern registers dataRegisters[8]; // d0 - d7
-extern registers addressRegisters[9]; // a0-a7, sp, usp
-extern uint32_t programCounter;
-
-enum Size{
-	Byte, Word, Longword
-};
 
 enum DataRegister{
 	d0, d1, d2, d3, d4, d5, d6, d7
