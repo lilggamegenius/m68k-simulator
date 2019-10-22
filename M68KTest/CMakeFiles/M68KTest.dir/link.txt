@@ -1,0 +1,1 @@
+/usr/bin/c++   -fno-operator-names -g  -rdynamic CMakeFiles/M68KTest.dir/__/M68KSimulator/Test/M68KTest.cpp.o  -o ../build/bin/M68KTest -Wl,-rpath,/home/lil-g/workspace/m68k-simulator/build/lib -lunicorn ../build/lib/libM68KSimulator.so -pthread -lunicorn 

@@ -1,0 +1,8 @@
+/home/lil-g/workspace/m68k-simulator/CMakeFiles/rebuild_cache.dir
+/home/lil-g/workspace/m68k-simulator/CMakeFiles/edit_cache.dir
+/home/lil-g/workspace/m68k-simulator/M68KSimulator/CMakeFiles/rebuild_cache.dir
+/home/lil-g/workspace/m68k-simulator/M68KSimulator/CMakeFiles/M68KSimulator.dir
+/home/lil-g/workspace/m68k-simulator/M68KSimulator/CMakeFiles/edit_cache.dir
+/home/lil-g/workspace/m68k-simulator/M68KTest/CMakeFiles/rebuild_cache.dir
+/home/lil-g/workspace/m68k-simulator/M68KTest/CMakeFiles/M68KTest.dir
+/home/lil-g/workspace/m68k-simulator/M68KTest/CMakeFiles/edit_cache.dir

@@ -1,0 +1,1 @@
+/usr/bin/c++   -save-temps -std=c++11 -fno-operator-names -g  -rdynamic CMakeFiles/M68KTest.dir/M68KSimulator/Test/M68KTest.o  -o M68KTest -Wl,-rpath,/home/lil-g/workspace /home/lil-g/workspace/libM68KSimulator.so 

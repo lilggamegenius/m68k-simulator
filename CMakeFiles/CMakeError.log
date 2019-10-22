@@ -1,0 +1,55 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/lil-g/workspace/m68k-simulator/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0ec51/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0ec51.dir/build.make CMakeFiles/cmTC_0ec51.dir/build
+make[1]: Entering directory '/media/lil-g/OS/Users/ggonz/workspace/m68k-simulator/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_0ec51.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -save-temps -std=c++11 -fno-operator-names    -o CMakeFiles/cmTC_0ec51.dir/CheckSymbolExists.cxx.o -c /home/lil-g/workspace/m68k-simulator/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTC_0ec51
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0ec51.dir/link.txt --verbose=1
+/usr/bin/c++   -save-temps -std=c++11 -fno-operator-names     -rdynamic CMakeFiles/cmTC_0ec51.dir/CheckSymbolExists.cxx.o  -o cmTC_0ec51 
+CMakeFiles/cmTC_0ec51.dir/CheckSymbolExists.cxx.o: In function `main':
+CheckSymbolExists.cxx:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_0ec51.dir/build.make:97: recipe for target 'cmTC_0ec51' failed
+make[1]: *** [cmTC_0ec51] Error 1
+make[1]: Leaving directory '/media/lil-g/OS/Users/ggonz/workspace/m68k-simulator/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_0ec51/fast' failed
+make: *** [cmTC_0ec51/fast] Error 2
+
+File /home/lil-g/workspace/m68k-simulator/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/lil-g/workspace/m68k-simulator/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_fc222/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fc222.dir/build.make CMakeFiles/cmTC_fc222.dir/build
+make[1]: Entering directory '/media/lil-g/OS/Users/ggonz/workspace/m68k-simulator/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fc222.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -save-temps -std=c++11 -fno-operator-names -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_fc222.dir/CheckFunctionExists.cxx.o -c /home/lil-g/workspace/m68k-simulator/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_fc222
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fc222.dir/link.txt --verbose=1
+/usr/bin/c++   -save-temps -std=c++11 -fno-operator-names -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_fc222.dir/CheckFunctionExists.cxx.o  -o cmTC_fc222 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_fc222.dir/build.make:97: recipe for target 'cmTC_fc222' failed
+make[1]: *** [cmTC_fc222] Error 1
+make[1]: Leaving directory '/media/lil-g/OS/Users/ggonz/workspace/m68k-simulator/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_fc222/fast' failed
+make: *** [cmTC_fc222/fast] Error 2
+
+
