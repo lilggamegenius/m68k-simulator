@@ -14,8 +14,6 @@ const uint32_t ramAddress = 0xFFFF0000u, romAddress = 0,
 		ramSizeAligned = ramSize, romSizeAligned = romSize;
 uint8_t* instructions;
 
-
-
 int main(int argc, char *argv[], char *envp[]){
 	if(argc > 1){
 		instructions = new uint8_t[argc-1];
@@ -28,7 +26,6 @@ int main(int argc, char *argv[], char *envp[]){
 	} else{
 		std::forward_list<uint8_t> input;
 	}
-
 
 	AddressSpace* addressSpace = new AddressSpace;
 	uc_engine *uc;

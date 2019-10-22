@@ -21,12 +21,12 @@
 
 #define CEXPORT extern "C" EXPORT
 
-CEXPORT void init(M68KSim* sim);
+/*CEXPORT void init(M68KSim* sim);
 CEXPORT int run(M68KSim* sim, char path[]);
 CEXPORT bool unload(M68KSim* sim);
 CEXPORT registers getDataRegister(M68KSim* sim, DataRegister dataRegister);
 CEXPORT registers getAddressRegister(M68KSim* sim, AddressRegister addressRegister);
 CEXPORT uint8_t getAddress8(M68KSim* sim, uint32_t address);
 CEXPORT uint16_t getAddress16(M68KSim* sim, uint32_t address);
-CEXPORT uint32_t getAddress32(M68KSim* sim, uint32_t address);
+CEXPORT uint32_t getAddress32(M68KSim* sim, uint32_t address);*/
 

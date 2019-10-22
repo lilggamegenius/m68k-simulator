@@ -1,16 +1,12 @@
 //
 // Created by ggonz on 3/9/2017.
 //
-
-class M68KSimulator;
-
 #pragma once
-
-
 
 #include <fstream>
 #include <unicorn/unicorn.h>
 #include "AddressSpace.hpp"
+#include "M68KSim.h"
 
 struct M68KSim;
 
