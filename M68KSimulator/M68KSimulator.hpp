@@ -6,13 +6,15 @@
 #include <fstream>
 #include <unicorn/unicorn.h>
 #include "AddressSpace.hpp"
+#include "Registers.hpp"
 #include "M68KSim.h"
 
-struct M68KSim;
 
 class M68KSimulator {
 public:
-	AddressSpace* addressSpace;
+	AddressSpace addressSpace;
+    registers dataRegisters[8];
+    registers addressRegisters[9];
 
 	EXPORT M68KSimulator();
 

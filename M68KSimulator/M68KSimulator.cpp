@@ -10,7 +10,6 @@ M68KSimulator::M68KSimulator(){
 }
 
 EXPORT void M68KSimulator::init(){
-	addressSpace = new AddressSpace();
 	err = uc_open(UC_ARCH_M68K, UC_MODE_BIG_ENDIAN, &uc);
 	if(err){
 		std::cerr << "Failed on uc_open() with error returned: " << err << ": " << uc_strerror(err) << std::endl;
@@ -19,7 +18,7 @@ EXPORT void M68KSimulator::init(){
 
 	const uint64_t size = sizeof(addressSpace);
 
-	err = uc_mem_map_ptr(uc, 0, size, UC_PROT_ALL, addressSpace);
+	err = uc_mem_map_ptr(uc, 0, size, UC_PROT_ALL, &addressSpace);
 	if(err){
 		std::cerr << "Failed to map address space: " << err << ": " << uc_strerror(err) << std::endl;
 		return;
@@ -27,7 +26,8 @@ EXPORT void M68KSimulator::init(){
 }
 
 bool M68KSimulator::unload(){
-	delete addressSpace;
+	//delete addressSpace;
+	uc_close(uc);
 	return false;
 }
 
@@ -61,16 +61,16 @@ void M68KSimulator::setRom(std::ifstream file){
 	init();
 	if(file){   // Opened
 		// get length of file:
-		file.seekg(0, file.end);
+		file.seekg(0, std::ifstream::end);
 		long length = file.tellg();
-		file.seekg(0, file.beg);
+		file.seekg(0, std::ifstream::beg);
 		if(length > romSize) throw std::overflow_error("File is larger than max rom size");
-		file.read(reinterpret_cast<char *>(addressSpace->rom.s8), length);
+		file.read(reinterpret_cast<char *>(addressSpace.rom.s8), length);
 		if(file){
 			std::cout << "Filled buffer" << std::endl;
 		} else{
-			fill();
 			std::cout << "File read failed, read \"" << file.gcount() << "\" bytes" << std::endl;
+            fill();
 		}
 	} else{     // Error
 		std::cout << "Error opening file" << std::endl;
@@ -79,7 +79,7 @@ void M68KSimulator::setRom(std::ifstream file){
 
 
 void M68KSimulator::fill(){
-	memset(addressSpace->rom.u32, 0, sizeof(addressSpace->rom.u32));
+	memset(addressSpace.rom.u32, 0, sizeof(addressSpace.rom.u32));
 }
 
 EXPORT registers M68KSimulator::getDataRegister(DataRegister dataRegister){
@@ -114,31 +114,29 @@ EXPORT uint32_t M68KSimulator::getAddress32(uint32_t address){
 	return result;
 }
 
-
-
-CEXPORT void init(M68KSim* sim){
-	reinterpret_cast<M68KSimulator*>(sim)->init();
+CEXPORT void init(M68KSimulator* sim){
+	sim->init();
 }
-CEXPORT int run(M68KSim* sim, char path[]){
-	return reinterpret_cast<M68KSimulator*>(sim)->run(path);
+CEXPORT int run(M68KSimulator* sim, char path[]){
+	return sim->run(path);
 }
-CEXPORT bool unload(M68KSim* sim){
-	return reinterpret_cast<M68KSimulator*>(sim)->unload();
+CEXPORT bool unload(M68KSimulator* sim){
+	return sim->unload();
 }
-CEXPORT registers getDataRegister(M68KSim* sim, DataRegister dataRegister){
-	return reinterpret_cast<M68KSimulator*>(sim)->getDataRegister(dataRegister);
+CEXPORT registers getDataRegister(M68KSimulator* sim, DataRegister dataRegister){
+	return sim->getDataRegister(dataRegister);
 }
-CEXPORT registers getAddressRegister(M68KSim* sim, AddressRegister addressRegister){
-	return reinterpret_cast<M68KSimulator*>(sim)->getAddressRegister(addressRegister);
+CEXPORT registers getAddressRegister(M68KSimulator* sim, AddressRegister addressRegister){
+	return sim->getAddressRegister(addressRegister);
 }
-CEXPORT uint8_t getAddress8(M68KSim* sim, uint32_t address){
-	return reinterpret_cast<M68KSimulator*>(sim)->getAddress8(address);
+CEXPORT uint8_t getAddress8(M68KSimulator* sim, uint32_t address){
+	return sim->getAddress8(address);
 }
-CEXPORT uint16_t getAddress16(M68KSim* sim, uint32_t address){
-	return reinterpret_cast<M68KSimulator*>(sim)->getAddress16(address);
+CEXPORT uint16_t getAddress16(M68KSimulator* sim, uint32_t address){
+	return sim->getAddress16(address);
 }
-CEXPORT uint32_t getAddress32(M68KSim* sim, uint32_t address){
-	return reinterpret_cast<M68KSimulator*>(sim)->getAddress32(address);
+CEXPORT uint32_t getAddress32(M68KSimulator* sim, uint32_t address){
+	return sim->getAddress32(address);
 }
 
 /*

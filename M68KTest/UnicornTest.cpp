@@ -10,24 +10,23 @@ constexpr T align4k(T val){
 	return aligned;
 }
 
+const uint8_t testInstructions[] = {
+        0x13,
+        0xFC,
+        0x00,
+        0xFF,
+        0xFF,
+        0xFF,
+        0x00,
+        0x00
+};
+
 const uint32_t ramAddress = 0xFFFF0000u, romAddress = 0,
 		ramSizeAligned = ramSize, romSizeAligned = romSize;
-uint8_t* instructions;
 
-int main(int argc, char *argv[], char *envp[]){
-	if(argc > 1){
-		instructions = new uint8_t[argc-1];
-		for(int i = 1; i < argc; i++){
-			uint8_t val;
-			//sscanf(argv[i], "%02X", &val);
-			val = strtoul(argv[i], nullptr, 16);
-			instructions[i-1] = val;
-		}
-	} else{
-		std::forward_list<uint8_t> input;
-	}
-
-	AddressSpace* addressSpace = new AddressSpace;
+int main(int argc, char *argv[]){
+    printf("test\n");
+	AddressSpace addressSpace;
 	uc_engine *uc;
 	uc_err err;
 
@@ -40,12 +39,12 @@ int main(int argc, char *argv[], char *envp[]){
 		return err;
 	}
 
-	err = uc_mem_map_ptr(uc, ramAddress, ramSizeAligned, UC_PROT_ALL, &addressSpace->ram);
+	err = uc_mem_map_ptr(uc, ramAddress, ramSizeAligned, UC_PROT_ALL, &addressSpace.ram);
 	if(err){
 		std::cerr << "Failed to map ram: " << err << ": " << uc_strerror(err) << std::endl;
 		return err;
 	}
-	err = uc_mem_map_ptr(uc, romAddress, romSizeAligned, UC_PROT_ALL, &addressSpace->rom);
+	err = uc_mem_map_ptr(uc, romAddress, romSizeAligned, UC_PROT_ALL, &addressSpace.rom);
 	if(err){
 		std::cerr << "Failed to map rom: " << err << ": " << uc_strerror(err) << std::endl;
 		return err;
@@ -53,7 +52,7 @@ int main(int argc, char *argv[], char *envp[]){
 	uc_mem_region *regions;
 	uint32_t count;
 	uc_mem_regions(uc, &regions, &count);
-	for(int i = 0;i < count;i++){
+	for(int i = 0; i < count; i++){
 		uint64_t begin = regions[i].begin, end = regions[i].end;
 		std::cout << "Memory Region " << i << ": Size: " << std::hex << std::uppercase
 		          << end - begin << " Range: " << regions[i].begin << " - " << regions[i].end
@@ -72,7 +71,7 @@ int main(int argc, char *argv[], char *envp[]){
 	}
 
 	// write machine code to be emulated to memory
-	err = uc_mem_write(uc, romAddress, instructions, sizeof(instructions));
+	err = uc_mem_write(uc, romAddress, testInstructions, sizeof(testInstructions));
 	if(err){
 		std::cerr << "Failed to write emulation code to memory, quit! " << err << ": " << uc_strerror(err) << std::endl;
 		return err;
@@ -81,7 +80,7 @@ int main(int argc, char *argv[], char *envp[]){
 	uc_reg_write(uc, UC_M68K_REG_D0, &d0);
 
 	// emulate code in infinite time & unlimited instructions
-	err = uc_emu_start(uc, romAddress, romAddress + sizeof(instructions), 0, 0);
+	err = uc_emu_start(uc, romAddress, romAddress + sizeof(testInstructions), 0, 0);
 	if(err){
 		std::cerr << "Failed on uc_emu_start() with error returned " << err << ": " << uc_strerror(err) << std::endl;
 		return err;

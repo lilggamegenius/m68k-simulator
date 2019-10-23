@@ -7,5 +7,5 @@ find_package(Threads REQUIRED)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../../build/bin/)
 
-add_executable(M68KTest M68KTest.cpp)
+add_executable(M68KTest UnicornTest.cpp M68KSimTest.cpp)
 TARGET_LINK_LIBRARIES(M68KTest Threads::Threads unicorn M68KSimulator)

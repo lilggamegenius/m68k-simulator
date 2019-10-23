@@ -1,7 +1,5 @@
-cmake_minimum_required(VERSION 2.4)
+cmake_minimum_required(VERSION 2.8.4)
 project(M68KSimulatorProject CXX)
-
-include_directories(../unicorn/include)
 
 set(CXX_STANDARD_REQUIRED 14)
 set(CMAKE_CXX_STANDARD 17)

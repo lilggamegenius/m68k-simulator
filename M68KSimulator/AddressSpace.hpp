@@ -6,7 +6,6 @@
 #include <cstdint>
 #include "Registers.hpp"
 
-
 #define ramSize 0x10000u
 
 typedef union{
@@ -18,7 +17,6 @@ typedef union{
 	int16_t s16[ramSize / 2];
 	int32_t s32[ramSize / 4];
 } RamMap;
-
 
 #define romSize 0x400000u
 
@@ -72,6 +70,5 @@ public:
 		uint8_t PSGOutput;                              // $C00011	        PSG output
 		const uint8_t reserved8[0x1FFFEE] = {0};        // $C00012-$DFFFFF	Reserved
 	} VDP;
-    RomMap ram;                                         // $E00000-$FFFFFF	68000 RAM
-
+    RamMap ram;                                         // $E00000-$FFFFFF	68000 RAM
 };
